@@ -1,3 +1,4 @@
 /.sonarlint
 /__pycache__
 /.vscode
+/code/__pycache__
