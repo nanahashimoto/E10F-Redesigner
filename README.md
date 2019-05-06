@@ -3,3 +3,11 @@
 # E10F Redesigner
 
 This piece of Python code was developed to calculate the optimal top panel configuration for the AE-1110-I project, part 8. The file `components.py` contains the various classes used in the program. The file `redesigner.py` contains the UI, the values used in the calculation and the final result.
+
+## How to use
+
+Navigate into the `code` folder and open your terminal/command prompt. Then, type the following:
+
+```bash
+python3 redesigner.py
+```
