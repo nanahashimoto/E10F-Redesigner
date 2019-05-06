@@ -45,12 +45,11 @@ class Design:
     def GetTotalArea (self):
         return self.panel.area + self.amountOfStringers*self.stringer.area
     
+    # Returns a boolean regarding whether the design is sufficient or not
     def IsSufficient (self, ultimateLoad, limitLoad, kC, c):
 
         def IsPanelBucklingOkay ():
-            stringerPitch = self.panel.width/(self.amountOfStringers-1)
-
-            sigmaCritical = kC * self.panel.material.eModulus * math.pow((self.panel.height/stringerPitch), 2)
+            sigmaCritical = kC * self.panel.material.eModulus * math.pow((self.panel.height/fStringerPitch), 2)
 
             if(sigmaCritical > fLimitStress):
                 return True
@@ -66,10 +65,17 @@ class Design:
                 return None
 
         def IsInterRivetBucklingOkay ():
-            return True
+            fTauInterRivet = 0.9 * kC * self.panel.material.eModulus * math.pow((self.panel.height/fStringerPitch), 2)
 
+            if fTauInterRivet < fUltimateStress and fTauInterRivet > fLimitStress:
+                return True
+            else:
+                return None
+
+        # Create some constants which the various check functions need
         fUltimateStress = ultimateLoad/self.area
         fLimitStress = limitLoad/self.area
+        fStringerPitch = self.panel.width/(self.amountOfStringers-1)
 
         if IsPanelBucklingOkay() == True and IsColumnBucklingOkay() == True and IsInterRivetBucklingOkay() == True:
             return True
