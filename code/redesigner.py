@@ -18,11 +18,13 @@ print("=============================")
 print("\nWritten by:\n")
 print(" - Douwe den Blanken")
 print(" - Stein Munting\n")
-print("Last edited: 6 May 2019\n")
+print("Last edited: 7 May 2019\n")
 
 print("-----------------------------\n")
 
 sStart = input("Do you want to start? (Y/n) ")
+
+
 bStart = None
 
 while True:
@@ -41,11 +43,18 @@ if bStart == None:
     sys.exit()
 
 else:
-    print("\nAlrighty, let's go!")
+    print("\nAlrighty, let's go! 🚀\n")
 
 # ------------------------------------------------------
 # Property definitions
 # ------------------------------------------------------
+
+# Load definitions
+ultimateLoad    = 30.0*math.pow(10, 3)
+limitLoad       = 15.0*math.pow(10, 3)
+kC              = 3.6
+c               = 2.1
+rivetSpacing    = 0.07
 
 # Panel properties
 panelWidth = 0.4
@@ -96,14 +105,14 @@ for currentPanelMaterial in arrMaterials:
 
                 currentDesign = Design(currentPanel ,currentStringer, currentNumberOfStringers, 0.5)
                 
-                if(currentDesign.IsSufficient(30*math.pow(10,3), 15*math.pow(10,3), 3.6, 2.1) == True):
+                if(currentDesign.IsSufficient(ultimateLoad, limitLoad, kC, c, rivetSpacing) == True):
                     arrSufficientDesigns.append(currentDesign)
 
 # ------------------------------------------------------
 # Optimial Design Choosing
 # ------------------------------------------------------
 
-print(len(arrSufficientDesigns))
+print("Amount of valid designs: " + str(len(arrSufficientDesigns)) + "\n")
 
 
 

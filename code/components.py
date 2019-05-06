@@ -46,7 +46,7 @@ class Design:
         return self.panel.area + self.amountOfStringers*self.stringer.area
     
     # Returns a boolean regarding whether the design is sufficient or not
-    def IsSufficient (self, ultimateLoad, limitLoad, kC, c):
+    def IsSufficient (self, ultimateLoad, limitLoad, kC, c, minRivetSpacing):
 
         def IsPanelBucklingOkay ():
             sigmaCritical = kC * self.panel.material.eModulus * math.pow((self.panel.height/fStringerPitch), 2)
@@ -65,7 +65,7 @@ class Design:
                 return None
 
         def IsInterRivetBucklingOkay ():
-            fTauInterRivet = 0.9 * kC * self.panel.material.eModulus * math.pow((self.panel.height/fStringerPitch), 2)
+            fTauInterRivet = 0.9 * kC * self.panel.material.eModulus * math.pow((self.panel.height/minRivetSpacing), 2)
 
             if fTauInterRivet < fUltimateStress and fTauInterRivet > fLimitStress:
                 return True
