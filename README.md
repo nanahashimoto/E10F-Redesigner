@@ -10,7 +10,7 @@ The following formulas are being calculated per design:
 
 ### Panel Buckling
 
-![Panel Buckling Equation](https://latex.codecogs.com/gif.latex?%5Csigma_%7Bcr%7D%20%3D%20K_c*E*%5Cbigg%28%5Cfrac%7Bt%7D%7Bs%7D%5Cbigg%29%5E2)
+![Panel Buckling Equation](https://latex.codecogs.com/gif.latex?%5Csigma_%7Bcr%7D%20%3D%20K_cE%5Cbigg%28%5Cfrac%7Bt%7D%7Bb%7D%5Cbigg%29%5E2)
 
 The critical sigma value should be bigger than the stress at the limit load of, in our case 15.0 kN.
 
