@@ -6,7 +6,7 @@ This piece of Python code was developed to calculate the optimal top panel confi
 
 ## How to use
 
-Navigate into the `code` folder and open your terminal/command prompt. Then, type the following:
+Click on the green 'Clone or Download button' and hit 'Download ZIP'. Unzip the package and navigate into the `code` folder. Open your terminal/command prompt in this folder and type the following:
 
 ```bash
 python3 redesigner.py
