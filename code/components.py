@@ -22,7 +22,7 @@ class Panel:
 
     # Give a string representation of the Panel object
     def ToString (self):
-        return " + Type: Panel\n   - Width: " + str(self.width) + " [m]\n   - Height: " + str(self.height) + " [m]\n   - Material:\n" + self.material.ToString()
+        return "   + Type: Panel\n     - Width: " + str(self.width) + " [m]\n     - Height: " + str(self.height) + " [m]\n     - Material:\n" + self.material.ToString()
 
 # Create a class for the LBracket, containing all of its properties
 class Stringer:
@@ -40,7 +40,7 @@ class Stringer:
         self.momentOfInertia = biggestRectangleMoment - smallestRectangleMoment - math.pow((self.neutralAxis-thickness/2), 2) * (width-thickness)*thickness - math.pow((width / 2-self.neutralAxis), 2) * (width-thickness) * thickness
 
     def ToString (self):
-        return " + Type: Stringer\n   - Width: " + str(self.width) + " [m]\n   - Thickness: " + str(self.thickness) + " [m]\n   - Material:\n" + self.material.ToString()
+        return "   + Type: Stringer\n     - Width: " + str(self.width) + " [m]\n     - Thickness: " + str(self.thickness) + " [m]\n     - Material:\n" + self.material.ToString()
 
 class Design:
     def __init__ (self, panel, stringer, amountOfStringers, length):
@@ -96,7 +96,7 @@ class Design:
             return None
 
     def ToString (self):
-        return "Type: Design\nLength: " + str(self.length) + " [m]\nAmount of stringers: " + str(self.amountOfStringers) + "\nPanel: \n" + self.panel.ToString() + "\nStringer: \n" + self.stringer.ToString()
+        return "Type: Design\n ~ Length: " + str(self.length) + " [m]\n ~ Amount of stringers: " + str(self.amountOfStringers) + "\n ~ Panel: \n" + self.panel.ToString() + "\n ~ Stringer: \n" + self.stringer.ToString()
 
 
 class Material:
@@ -108,4 +108,4 @@ class Material:
 
     # Return a string representation of the material
     def ToString (self):
-        return "     > Type: Material\n       * Name: " + self.name + "\n       * Sigma Ultimate: " + str(round(self.sigmaUltimate/math.pow(10, 6), 3)) + " [MPa]\n       * E Modulus: " + str(round(self.eModulus/math.pow(10, 9), 3)) + " [GPa]\n       * Density: " + str(self.density) + " [kg/m^3]"
+        return "       > Type: Material\n         * Name: " + self.name + "\n         * Sigma Ultimate: " + str(round(self.sigmaUltimate/math.pow(10, 6), 3)) + " [MPa]\n         * E Modulus: " + str(round(self.eModulus/math.pow(10, 9), 3)) + " [GPa]\n         * Density: " + str(self.density) + " [kg/m^3]"
