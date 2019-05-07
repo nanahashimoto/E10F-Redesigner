@@ -45,6 +45,8 @@ if bStart == None:
 else:
     print("\nAlrighty, let's go! 🚀\n")
 
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
 # ------------------------------------------------------
 # Property definitions [SI UNITS!]
 # ------------------------------------------------------
@@ -107,7 +109,7 @@ for currentPanelMaterial in arrMaterials:
                 
                 if(currentDesign.IsSufficient(fUltimateLoad, fLimitLoad, fKC, fC, fRivetSpacing) == True):
                     arrSufficientDesigns.append(currentDesign)
-                    print("\n" + currentDesign.ToString() + "\n\n-------------------------------------")
+                    print("\n" + currentDesign.ToString() + "\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
 # ------------------------------------------------------
 # Optimial Design Choosing
