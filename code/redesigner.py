@@ -11,6 +11,7 @@ from components import Panel, Stringer, Design, Material
 # Terminal Setup
 # ------------------------------------------------------
 
+print("")
 print("=============================")
 print("| E10F - Offical Redesigner |")
 print("=============================")
@@ -23,7 +24,6 @@ print("Last edited: 7 May 2019\n")
 print("-----------------------------\n")
 
 sStart = input("Do you want to start? (Y/n) ")
-
 
 bStart = None
 
@@ -46,18 +46,18 @@ else:
     print("\nAlrighty, let's go! 🚀\n")
 
 # ------------------------------------------------------
-# Property definitions
+# Property definitions [SI UNITS!]
 # ------------------------------------------------------
 
 # Load definitions
-ultimateLoad    = 30.0*math.pow(10, 3)
-limitLoad       = 15.0*math.pow(10, 3)
-kC              = 3.6
-c               = 2.1
-rivetSpacing    = 0.07
+fUltimateLoad    = 30.0*math.pow(10, 3)
+fLimitLoad       = 15.0*math.pow(10, 3)
+fKC              = 3.6
+fC               = 2.1
+fRivetSpacing    = 0.07
 
 # Panel properties
-panelWidth = 0.4
+fPanelWidth = 0.4
 
 # Set the maximum amount of stringers
 iMaxAmountOfStringers = 8
@@ -96,7 +96,7 @@ for currentPanelMaterial in arrMaterials:
 
     for currentPanelThickness in arrPanelThicknesses:
 
-        currentPanel = Panel(panelWidth, currentPanelThickness, currentPanelMaterial)
+        currentPanel = Panel(fPanelWidth, currentPanelThickness, currentPanelMaterial)
 
         # Need to have a minimum of two stringers, else division by 0 occurs
         for currentNumberOfStringers in range(2, iMaxAmountOfStringers):
@@ -105,53 +105,17 @@ for currentPanelMaterial in arrMaterials:
 
                 currentDesign = Design(currentPanel ,currentStringer, currentNumberOfStringers, 0.5)
                 
-                if(currentDesign.IsSufficient(ultimateLoad, limitLoad, kC, c, rivetSpacing) == True):
+                if(currentDesign.IsSufficient(fUltimateLoad, fLimitLoad, fKC, fC, fRivetSpacing) == True):
                     arrSufficientDesigns.append(currentDesign)
+                    print("\n" + currentDesign.ToString() + "\n\n-------------------------------------")
 
 # ------------------------------------------------------
 # Optimial Design Choosing
 # ------------------------------------------------------
 
-print("Amount of valid designs: " + str(len(arrSufficientDesigns)) + "\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print("\nAmount of valid designs: " + str(len(arrSufficientDesigns)) + "\n")
 
 # KC OFFICIAL 3.6
 # b = stringer pitch
 
-
-# 6 stringers
-# thickness
-# material (steel/material
-# 288 options
-
 # 4 and 6 graph lines for K_c
-
-
-# from components import Panel, LBracket
-
-# width: 0.4 m
-# height: 0.8/1000 m
-
-# column buckling should be checked against failure values
-# Fcrit should be bigger than 30 (at least)
-
-# K_c is ALWAYS 6.3
-# c is 2.1
-# s (rivet spacing) we can decide for ourselves
-
-# check if design has minimum required area regarding material props
-# ultimate stress alu 100 MPa
-# ultimate stress steel 1275 MPa
