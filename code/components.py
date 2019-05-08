@@ -50,9 +50,13 @@ class Design:
         self.length = length
 
         self.area = self.GetTotalArea()
+        self.mass = self.CalculateMass()
 
     def GetTotalArea (self):
         return self.panel.area + self.amountOfStringers * self.stringer.area
+    
+    def CalculateMass (self):
+        return self.length*((self.amountOfStringers * self.stringer.area) * self.stringer.material.density + self.panel.area * self.panel.material.density)
     
     # Returns a boolean regarding whether the design is sufficient or not
     def IsSufficient (self, ultimateLoad, limitLoad, kC, c, minRivetSpacing):
@@ -96,7 +100,7 @@ class Design:
             return None
 
     def ToString (self):
-        return "Type: Design\n ~ Length: " + str(self.length) + " [m]\n ~ Amount of stringers: " + str(self.amountOfStringers) + "\n ~ Panel: \n" + self.panel.ToString() + "\n ~ Stringer: \n" + self.stringer.ToString()
+        return "Type: Design\n ~ Mass: "  + str(round(self.mass, 3)) + " [kg]\n ~ Length: " + str(self.length) + " [m]\n ~ Amount of stringers: " + str(self.amountOfStringers) + "\n ~ Panel: \n" + self.panel.ToString() + "\n ~ Stringer: \n" + self.stringer.ToString()
 
 
 class Material:

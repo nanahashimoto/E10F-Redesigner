@@ -19,7 +19,7 @@ print("=============================")
 print("\nWritten by:\n")
 print(" - Douwe den Blanken")
 print(" - Stein Munting\n")
-print("Last edited: 7 May 2019\n")
+print("Last edited: 8 May 2019\n")
 
 print("-----------------------------\n")
 
