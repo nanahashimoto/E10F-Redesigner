@@ -117,6 +117,16 @@ for currentPanelMaterial in arrMaterials:
 
 print("\nAmount of valid designs: " + str(len(arrSufficientDesigns)) + "\n")
 
+bestDesign = arrSufficientDesigns[0]
+fMinimumMass = bestDesign.mass
+
+for currentDesign in arrSufficientDesigns:
+    if currentDesign.mass < fMinimumMass:
+        bestDesign = currentDesign
+        fMinimumMass = bestDesign.mass
+
+print(print("The best configuration is below.\n\n" + bestDesign.ToString()))
+
 # KC OFFICIAL 3.6
 # b = stringer pitch
 
